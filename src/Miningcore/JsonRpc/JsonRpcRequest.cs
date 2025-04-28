@@ -51,4 +51,7 @@ public class JsonRpcRequest<T>
 
         return (TParam) Params;
     }
+
+    [JsonProperty("error")]
+    public JsonRpcError Error { get; set; }
 }
