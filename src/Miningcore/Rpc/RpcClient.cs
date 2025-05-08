@@ -172,7 +172,9 @@ public class RpcClient
                 // read response
                 var responseContent = await response.Content.ReadAsStringAsync(ct);
                 JObject jObject = JObject.Parse(responseContent);
-                if(jObject["result"]?["difficulty"]?["proof-of-work"] != null)
+
+                var proofOfWorkToken = jObject.SelectToken("result.difficulty.proof-of-work");
+                if (proofOfWorkToken != null)
                 {
                     double proofOfWork = (double)jObject["result"]["difficulty"]["proof-of-work"];
                     jObject["result"]["difficulty"] = proofOfWork;

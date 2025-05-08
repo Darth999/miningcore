@@ -781,6 +781,37 @@
         "explorerTxLink": "https://chainz.cryptoid.info/dgb/tx.dws?{0}.htm",
         "explorerAccountLink": "https://chainz.cryptoid.info/dgb/address.dws?{0}.htm"
     },
+    "woodcoin": {
+        "name": "Woodcoin",
+        "canonicalName": "woodcoin",
+        "symbol": "LOG",
+        "family": "bitcoin",
+        "website": "https://woodcoin.org/",
+        "market": "https://coinmarketcap.com/de/currencies/woodcoin/",
+        "twitter": "https://twitter.com/WoodCoinWorld",
+        "telegram": "",
+        "discord": "https://discord.gg/CZ2Fhux4bT",
+        "coinbaseHasher": {
+            "hash": "sha256d"
+        },
+        "headerHasher": {
+            "hash": "skein2"
+        },
+        "blockHasher": {
+            "hash": "reverse",
+            "args": [
+                {
+                    "hash": "sha256d"
+                }
+            ]
+        },
+        "blockTemplateRpcExtraParams": [
+            "skein"
+        ],
+        "explorerBlockLink": "",
+        "explorerTxLink": "",
+        "explorerAccountLink": ""
+    },
     "digibyte-qubit": {
         "name": "Digibyte Qubit",
         "canonicalName": "Digibyte",
@@ -2553,22 +2584,22 @@
         "explorerAccountLink": "https://xplore.satoverse.io/address/{0}"
     },
     "novo": {
-      "name": "Novo",
-      "symbol": "NOVO",
-      "family": "bitcoin",
-      "coinbaseHasher": {
-        "hash": "sha256d"
-      },
-      "headerHasher": {
-        "hash": "sha256dt"
-      },
-      "blockHasher": {
-        "hash": "reverse",
-        "args": [ { "hash": "sha256dt" } ]
-      },
-      "explorerBlockLink": "https://explorer.novochain.ovh/block/$height$",
-      "explorerTxLink": "https://explorer.novochain.ovh/tx/{0}",
-      "explorerAccountLink": "https://explorer.novochain.ovh/address/{0}"
+        "name": "Novo",
+        "symbol": "NOVO",
+        "family": "bitcoin",
+        "coinbaseHasher": {
+            "hash": "sha256d"
+        },
+        "headerHasher": {
+            "hash": "sha256dt"
+        },
+        "blockHasher": {
+            "hash": "reverse",
+            "args": [ { "hash": "sha256dt" } ]
+        },
+        "explorerBlockLink": "https://explorer.novochain.ovh/block/$height$",
+        "explorerTxLink": "https://explorer.novochain.ovh/tx/{0}",
+        "explorerAccountLink": "https://explorer.novochain.ovh/address/{0}"
     },
     "pulsar": {
         "name": "Pulsar",
@@ -4711,7 +4742,7 @@
         "explorerBlockLink": "https://www.exploremonero.com/block/$height$",
         "explorerTxLink": "https://www.exploremonero.com/transaction/{0}"
     },
-     "conceal": {
+    "conceal": {
         "name": "Conceal",
         "canonicalName": "Conceal",
         "symbol": "CCX",
@@ -4786,7 +4817,7 @@
         "explorerBlockLink": "https://explorer.zephyrprotocol.com/block/$height$",
         "explorerTxLink": "https://explorer.zephyrprotocol.com/tx/{0}"
     },
-     "zano": {
+    "zano": {
         "name": "Zano",
         "canonicalName": "Zano",
         "symbol": "ZANO",
@@ -4923,7 +4954,7 @@
         "explorerAccountLink": "https://blockscout.etherone.one/address/{0}",
         "ethasher": "ethash"
     },
-        "octaspace": {
+    "octaspace": {
         "name": "OctaSpace",
         "canonicalName": "Octa.Space",
         "symbol": "OCTA",
@@ -5075,7 +5106,7 @@
         "addressBech32PrefixTestnet": "bricstest",
         "explorerBlockLink": "https://explorer.bricspro.site/blocks/$hash$",
         "explorerTxLink": "https://explorer.bricspro.site/txs/{0}",
-        "explorerAccountLink": "https://explorer.bricspro.site/addresses/{0}"   
+        "explorerAccountLink": "https://explorer.bricspro.site/addresses/{0}"
     },
     "bugna": {
         "name": "Bugna Network",
@@ -5165,7 +5196,7 @@
         "addressBech32PrefixTestnet": "kasv2test",
         "explorerBlockLink": "https://explorer.kaspa-v2.services/blocks/$hash$",
         "explorerTxLink": "https://explorer.kaspa-v2.services/txs/{0}",
-        "explorerAccountLink": "https://explorer.kaspa-v2.services/addresses/{0}"   
+        "explorerAccountLink": "https://explorer.kaspa-v2.services/addresses/{0}"
     },
     "kaspaclassic": {
         "name": "Kaspa Classic",
