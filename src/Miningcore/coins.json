@@ -966,7 +966,7 @@
         "blockTemplateRpcExtraParams": [],
         "coinbaseTxVersion": 2,
         "isPseudoPoS": true,
-        "HasBrokenSendMany": false,
+        "HasBrokenSendMany": true,
         "coinbaseTxComment": "Miner-Control.de",
         "explorerBlockLink": "https://chainz.cryptoid.info/dem/block.dws?$height$.htm",
         "explorerTxLink": "https://chainz.cryptoid.info/dem/tx.dws?{0}.htm",
