@@ -1,5 +1,6 @@
-namespace Miningcore.Blockchain.Bitcoin.DaemonResponses;
+using Newtonsoft.Json;
 
+namespace Miningcore.Blockchain.Bitcoin.DaemonResponses;
 public class MiningInfo
 {
     public int Blocks { get; set; }
@@ -7,5 +8,9 @@ public class MiningInfo
     public int CurrentBlockWeight { get; set; }
     public double Difficulty { get; set; }
     public double NetworkHashps { get; set; }
+
+    [JsonProperty("netmhashps")]
+    public double NetMHashps { get; set; }
+
     public string Chain { get; set; }
 }

@@ -240,7 +240,7 @@ public abstract class BitcoinJobManagerBase<TJob> : JobManagerBase<TJob>
             var miningInfoResponse = results[0].Response.ToObject<MiningInfo>();
             var networkInfoResponse = results[1].Response.ToObject<NetworkInfo>();
 
-            BlockchainStats.NetworkHashrate = miningInfoResponse.NetworkHashps;
+            BlockchainStats.NetworkHashrate = miningInfoResponse.NetworkHashps > 0 ? miningInfoResponse.NetworkHashps : miningInfoResponse.NetMHashps * 2000000;
             BlockchainStats.ConnectedPeers = networkInfoResponse.Connections;
 
             // Fall back to alternative RPC if coin does not report Network HPS (Digibyte)
@@ -356,9 +356,15 @@ public abstract class BitcoinJobManagerBase<TJob> : JobManagerBase<TJob>
             }
 
             var connectionCountResponse = results[0].Response.ToObject<object>();
-
-            //BlockchainStats.NetworkHashrate = miningInfoResponse.NetworkHashps;
             BlockchainStats.ConnectedPeers = (int) (long) connectionCountResponse!;
+
+            // Get network hashrate for legacy daemons
+            var miningInfoResult = await rpc.ExecuteAsync<MiningInfo>(logger, BitcoinCommands.GetMiningInfo, ct);
+            if(miningInfoResult.Error == null && miningInfoResult.Response != null)
+            {
+                var miningInfo = miningInfoResult.Response;
+                BlockchainStats.NetworkHashrate = miningInfo.NetworkHashps > 0 ? miningInfo.NetworkHashps : miningInfo.NetMHashps * 2000000;
+            }
         }
 
         catch(Exception e)
