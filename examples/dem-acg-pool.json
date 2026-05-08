@@ -65,7 +65,8 @@
       ],
       "paymentProcessing": {
         "enabled": true,
-        "minimumPayment": 0.001,
+        "minimumPayment": 0.1,
+        "hasLegacyDaemon": true,
         "payoutScheme": "SOLO",
         "payoutSchemeConfig": {
           "factor": 2
