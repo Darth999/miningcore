@@ -72,3 +72,24 @@ docker compose up -d
 ## Based on
 - [djspacedevil/miningcore](https://github.com/djspacedevil/miningcore)
 - Original: [oliverw/miningcore](https://github.com/oliverw/miningcore)
+
+## ACG Daemon Setup (Important!)
+
+### 1. Enable txindex
+Add to your `aurum.conf`:
+Then restart the node with `-reindex` once:
+```bash
+# In docker-compose.yml temporarily add:
+command: aurumd -datadir=/root/.bitcoin -reindex
+# After reindex remove the -reindex flag
+```
+
+### 2. Import Pool Private Key
+The ACG daemon needs the pool's private key to verify block rewards:
+```bash
+aurum-cli importprivkey YOUR_ACG_PRIVATE_KEY "" true
+```
+Without this, blocks will be classified as orphaned with "missing tx details" error.
+
+### 3. hasLegacyDaemon
+ACG requires `"hasLegacyDaemon": true` in the pool paymentProcessing config.
